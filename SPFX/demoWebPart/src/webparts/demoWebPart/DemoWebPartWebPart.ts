@@ -31,7 +31,7 @@ export default class DemoWebPartWebPart extends BaseClientSideWebPart<IDemoWebPa
       <div>
         <h3>Welcome to SharePoint Framework!</h3>
         <p>
-         This is a demo webpart implemented using this article
+         This is a   demo webpart implemented using this article
          <br />
          <a href="https://learn.microsoft.com/en-us/sharepoint/dev/spfx/web-parts/get-started/build-a-hello-world-web-part" target="_blank">Build a Hello World Web Part</a>
 
