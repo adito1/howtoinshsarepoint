@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "dgSpecHash": "i/r0mZlwxpw=",
+  "success": true,
+  "projectFilePath": "C:\\Projects\\HowToInSharePoint\\git\\howtoinshsarepoint\\SPO\\CSOM\\CSOMDemo\\CSOMDemo.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\spfarm\\.nuget\\packages\\microsoft.extensions.configuration\\10.0.3\\microsoft.extensions.configuration.10.0.3.nupkg.sha512",
+    "C:\\Users\\spfarm\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\10.0.3\\microsoft.extensions.configuration.abstractions.10.0.3.nupkg.sha512",
+    "C:\\Users\\spfarm\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\10.0.3\\microsoft.extensions.configuration.fileextensions.10.0.3.nupkg.sha512",
+    "C:\\Users\\spfarm\\.nuget\\packages\\microsoft.extensions.configuration.json\\10.0.3\\microsoft.extensions.configuration.json.10.0.3.nupkg.sha512",
+    "C:\\Users\\spfarm\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\10.0.3\\microsoft.extensions.fileproviders.abstractions.10.0.3.nupkg.sha512",
+    "C:\\Users\\spfarm\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\10.0.3\\microsoft.extensions.fileproviders.physical.10.0.3.nupkg.sha512",
+    "C:\\Users\\spfarm\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\10.0.3\\microsoft.extensions.filesystemglobbing.10.0.3.nupkg.sha512",
+    "C:\\Users\\spfarm\\.nuget\\packages\\microsoft.extensions.primitives\\10.0.3\\microsoft.extensions.primitives.10.0.3.nupkg.sha512",
+    "C:\\Users\\spfarm\\.nuget\\packages\\microsoft.identity.client\\4.74.1\\microsoft.identity.client.4.74.1.nupkg.sha512",
+    "C:\\Users\\spfarm\\.nuget\\packages\\microsoft.identitymodel.abstractions\\6.35.0\\microsoft.identitymodel.abstractions.6.35.0.nupkg.sha512",
+    "C:\\Users\\spfarm\\.nuget\\packages\\microsoft.sharepointonline.csom\\16.1.26211.12010\\microsoft.sharepointonline.csom.16.1.26211.12010.nupkg.sha512",
+    "C:\\Users\\spfarm\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.1\\system.diagnostics.diagnosticsource.6.0.1.nupkg.sha512",
+    "C:\\Users\\spfarm\\.nuget\\packages\\system.io.pipelines\\10.0.3\\system.io.pipelines.10.0.3.nupkg.sha512",
+    "C:\\Users\\spfarm\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\spfarm\\.nuget\\packages\\system.text.encodings.web\\10.0.3\\system.text.encodings.web.10.0.3.nupkg.sha512",
+    "C:\\Users\\spfarm\\.nuget\\packages\\system.text.json\\10.0.3\\system.text.json.10.0.3.nupkg.sha512",
+    "C:\\Users\\spfarm\\.nuget\\packages\\microsoft.net.sdk.compilers.toolset\\9.0.205\\microsoft.net.sdk.compilers.toolset.9.0.205.nupkg.sha512",
+    "C:\\Users\\spfarm\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.17\\microsoft.windowsdesktop.app.ref.8.0.17.nupkg.sha512",
+    "C:\\Users\\spfarm\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.17\\microsoft.netcore.app.ref.8.0.17.nupkg.sha512",
+    "C:\\Users\\spfarm\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.17\\microsoft.aspnetcore.app.ref.8.0.17.nupkg.sha512",
+    "C:\\Users\\spfarm\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.17\\microsoft.netcore.app.host.win-x64.8.0.17.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,10 @@
+C:\Projects\HowToInSharePoint\git\howtoinshsarepoint\SPS\CSOM\csomForSPS\csomForSPS\bin\Debug\csomForSPS.exe.config
+C:\Projects\HowToInSharePoint\git\howtoinshsarepoint\SPS\CSOM\csomForSPS\csomForSPS\bin\Debug\csomForSPS.exe
+C:\Projects\HowToInSharePoint\git\howtoinshsarepoint\SPS\CSOM\csomForSPS\csomForSPS\bin\Debug\csomForSPS.pdb
+C:\Projects\HowToInSharePoint\git\howtoinshsarepoint\SPS\CSOM\csomForSPS\csomForSPS\bin\Debug\Microsoft.SharePoint.Client.dll
+C:\Projects\HowToInSharePoint\git\howtoinshsarepoint\SPS\CSOM\csomForSPS\csomForSPS\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+C:\Projects\HowToInSharePoint\git\howtoinshsarepoint\SPS\CSOM\csomForSPS\csomForSPS\obj\Debug\csomForSPS.csproj.AssemblyReference.cache
+C:\Projects\HowToInSharePoint\git\howtoinshsarepoint\SPS\CSOM\csomForSPS\csomForSPS\obj\Debug\csomForSPS.csproj.CoreCompileInputs.cache
+C:\Projects\HowToInSharePoint\git\howtoinshsarepoint\SPS\CSOM\csomForSPS\csomForSPS\obj\Debug\csomForSPS.csproj.Up2Date
+C:\Projects\HowToInSharePoint\git\howtoinshsarepoint\SPS\CSOM\csomForSPS\csomForSPS\obj\Debug\csomForSPS.exe
+C:\Projects\HowToInSharePoint\git\howtoinshsarepoint\SPS\CSOM\csomForSPS\csomForSPS\obj\Debug\csomForSPS.pdb

@@ -1,0 +1,10 @@
+env.json
+cases
+/SPOCSOM/certificate
+myMSEntraCert.cer
+.pfx
+.key
+appsettings.json
+SelfSinedCertificate
+forCustomer.ps1
+.init
