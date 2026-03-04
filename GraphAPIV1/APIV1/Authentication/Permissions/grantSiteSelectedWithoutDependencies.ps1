@@ -1,11 +1,10 @@
+# First, get an access token using your authentication method
 $tenantId = ""
 $clientId = ""
 $clientSecret = ""
 $permissions = "read" # possible values are : "read", "write", "owner", "fullcontrol"
 $hostname = "yourTenant.sharepoint.com" # change to your tenant's hostname
-$relativePath = "/sites/site1" # change to your site's relative path
-
-
+$relativePath = "/sites/site1" # change to your site's relative path yourTenant.sharepoint.com/sites/site1
 
 <#
 .SYNOPSIS
@@ -94,75 +93,6 @@ function Grant-SiteSelectedPermissions {
     }
 }
 
-<#
-.SYNOPSIS
-Get all assigned site permissions for a specific application (clientId).
-
-.DESCRIPTION
-Calls Microsoft Graph API to list all permissions for a site, then filters
-the result to only permissions granted to the provided clientId.
-
-.PARAMETER AccessToken
-The access token for authenticating with Microsoft Graph API.
-
-.PARAMETER SiteId
-The ID of the SharePoint site.
-
-.PARAMETER ClientId
-The client ID (application ID) to filter permissions for.
-
-.OUTPUTS
-Returns matching permission objects.
-#>
-function Get-SiteSelectedPermissionsByClientId {
-    [CmdletBinding()]
-    param (
-        [Parameter(Mandatory = $true)]
-        [string]$AccessToken,
-
-        [Parameter(Mandatory = $true)]
-        [string]$SiteId,
-
-        [Parameter(Mandatory = $true)]
-        [string]$ClientId
-    )
-
-    $headers = @{
-        "Authorization" = "Bearer $AccessToken"
-        "Content-Type"  = "application/json"
-    }
-
-    try {
-        $response = Invoke-RestMethod -Method Get -Uri "https://graph.microsoft.com/v1.0/sites/$SiteId/permissions" -Headers $headers
-
-        $matchingPermissions = @($response.value | Where-Object {
-                $permission = $_
-
-                $hasMatchInV1 = $false
-                if ($permission.grantedToIdentities) {
-                    $hasMatchInV1 = @($permission.grantedToIdentities | Where-Object {
-                            $_.application -and $_.application.id -eq $ClientId
-                        }).Count -gt 0
-                }
-
-                $hasMatchInV2 = $false
-                if ($permission.grantedToIdentitiesV2) {
-                    $hasMatchInV2 = @($permission.grantedToIdentitiesV2 | Where-Object {
-                            $_.application -and $_.application.id -eq $ClientId
-                        }).Count -gt 0
-                }
-
-                $hasMatchInV1 -or $hasMatchInV2
-            })
-
-        return $matchingPermissions
-    }
-    catch {
-        Write-Error "Failed to get site permissions for clientId '$ClientId': $_"
-        throw
-    }
-}
-
 
 <#
 .SYNOPSIS
@@ -194,6 +124,69 @@ function Get-ApplicationAccessToken {
     return $tokenResponse.access_token
 }
 
+<#
+docuementation: 
+API endpoint:GET https://graph.microsoft.com/v1.0/sites/{hostname}:/{relative-path}
+
+Permission type	Least privileged permissions	Higher privileged permissions
+Delegated (work or school account)	Sites.Read.All	Sites.ReadWrite.All
+Delegated (personal Microsoft account)	Not supported.	Not supported.
+Application	Sites.Read.All	Sites.ReadWrite.All
+#>
+<#
+.SYNOPSIS
+    Get a SharePoint site resource by its path using Microsoft Graph API.
+
+.DESCRIPTION
+    This function retrieves site information from a SharePoint site using its hostname and relative path.
+    API endpoint: GET https://graph.microsoft.com/v1.0/sites/{hostname}:/{relative-path}
+
+.PARAMETER AccessToken
+    The access token for authenticating with Microsoft Graph API.
+
+.PARAMETER Hostname
+    The hostname of the SharePoint tenant (e.g., "mngenvmcap367749.sharepoint.com").
+
+.PARAMETER RelativePath
+    The relative path to the site (e.g., "/sites/test4").
+
+.EXAMPLE
+    Get-SiteResourceByPath -AccessToken $token -Hostname "mngenvmcap367749.sharepoint.com" -RelativePath "/sites/test4"
+
+.OUTPUTS
+    Returns the site object with properties like id, displayName, description, webUrl, etc.
+#>
+function Get-SiteResourceByPath {
+    [CmdletBinding()]
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$AccessToken,
+
+        [Parameter(Mandatory = $true)]
+        [string]$Hostname,
+
+        [Parameter(Mandatory = $true)]
+        [string]$RelativePath
+    )
+
+    $headers = @{
+        "Authorization" = "Bearer $AccessToken"
+        "Content-Type"  = "application/json"
+    }
+
+    # Build the URI - note the colon between hostname and relative path
+    $uri = "https://graph.microsoft.com/v1.0/sites/$($Hostname):$($RelativePath)"
+
+    try {
+        Write-Host "Calling Microsoft Graph API: $uri" -ForegroundColor Cyan
+        $result = Invoke-RestMethod -Method Get -Uri $uri -Headers $headers
+        return $result
+    }
+    catch {
+        Write-Error "Failed to get site resource: $_"
+        throw
+    }
+}
 
 
 $accessToken = Get-ApplicationAccessToken -TenantId $tenantId -ClientId $clientId -ClientSecret $clientSecret
@@ -209,9 +202,11 @@ Write-Host "`nSite Information:" -ForegroundColor Green
 $siteInfo | Select-Object id, displayName, description, webUrl | Format-List
 
 $displayName = "grant $permissions permissions to $clientId for site $($siteInfo.displayName)"
+$displayName
 
 <#
 # Then call the function
+#>
 $result = Grant-SiteSelectedPermissions `
     -AccessToken $accessToken `
     -ClientId $clientId  `
@@ -221,14 +216,5 @@ $result = Grant-SiteSelectedPermissions `
 
 
 $result | Select-Object id, roles, grantedToIdentitiesV2, grantedToIdentities | Format-List
-#>
 
-$assignedPermissions = Get-SiteSelectedPermissionsByClientId `
-    -AccessToken $accessToken `
-    -SiteId $siteInfo.id `
-    -ClientId $clientId
-
-Write-Host "`nPermissions assigned to clientId '$clientId':" -ForegroundColor Green
-$assignedPermissions | Select-Object id, roles, name, grantedToIdentitiesV2, grantedToIdentities | Format-List
-    
 

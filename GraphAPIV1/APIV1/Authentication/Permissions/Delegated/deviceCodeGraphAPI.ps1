@@ -296,14 +296,14 @@ function Show-ListItems {
 
 
 # Configuration - Replace with your values
-$tenantId = "" #replace with your tenant ID 
-$clientId = "" #replace with your client ID
+$tenantId = ""
+$clientId = ""
 $scopes = @("Sites.Selected")
 
 # SPO site and list details
-$siteHostname = "yourTenant.sharepoint.com" #replace with your tenant's hostname
-$sitePath = "/sites/site1" #replace with your site's relative path
-$listName = "list1" #replace with your list name
+$siteHostname = "yoursharepointTenant.sharepoint.com"
+$sitePath = "/sites/site6"
+$listName = "list1"
 
 try {
     # 1. Authenticate using Device Code flow
