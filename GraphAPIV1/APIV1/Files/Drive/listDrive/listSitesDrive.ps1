@@ -3,10 +3,9 @@
 # Configuration to be updated by user
 $clientId = ""
 $tenantId = ""
-$clientSecret = ""
-$sharePointHostname = "" #e.g. contoso.sharepoint.com
+$clientSecret = "your-client-secret"
+$sharePointHostname = "https://mngenvmcap367749.sharepoint.com" #e.g. contoso.sharepoint.com
 $siteServerRelativePath = "/sites/test1" #e.g. /sites/test1
-
 
 <#
 .SYNOPSIS
